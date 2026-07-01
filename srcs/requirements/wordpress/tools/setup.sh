@@ -73,4 +73,6 @@ if ! wp core is-installed --path=/var/www/html --allow-root; then
         --path=/var/www/html || true
 fi
 
+echo "listen = 9000" >> /etc/php/8.2/fpm/pool.d/www.conf
+
 exec php-fpm8.2 -F
