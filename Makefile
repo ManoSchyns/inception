@@ -2,22 +2,22 @@ COMPOSE_FILE=srcs/docker-compose.yml
 
 all: up
 
-# Build containeurs
+# Build containers
 up:
 	docker compose -f $(COMPOSE_FILE) up -d --build
 
-# Stop containeurs
+# Stop containers
 down:
 	docker compose -f $(COMPOSE_FILE) down
 
-# Stop and restart containeurs
+# Stop and restart containers
 restart: down up
 
 # Show all logs
 logs:
 	docker compose -f $(COMPOSE_FILE) logs
 
-# Show running containeurs
+# Show running containers
 info:
 	docker ps
 
@@ -33,11 +33,11 @@ mariadb-logs:
 nginx-logs:
 	docker logs nginx
 
-# Remove containeurs and volumes
+# Remove containers and volumes
 clean:
 	docker compose -f $(COMPOSE_FILE) down -v
 
-# Remove all images, containeurs and docker volumes
+# Remove all images, containers and docker volumes
 fclean: clean
 	docker system prune -af
 
